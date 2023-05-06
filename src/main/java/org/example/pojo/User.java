@@ -1,9 +1,13 @@
 package org.example.pojo;
 
-public class User {
-    private String User;
+import com.alibaba.fastjson.annotation.JSONField;
 
+public class User {
+    @JSONField(ordinal = 1)
+    private String User;
+    @JSONField(ordinal = 2)
     private Integer age;
+
 
     public User(String user, Integer age) {
         User = user;
@@ -29,7 +33,16 @@ public class User {
         this.age = age;
     }
 
+    @Override
+    public String toString() {
+        return "User{" +
+                "User='" + User + '\'' +
+                ", age=" + age +
+                '}';
+    }
+
     public static void main(String[] args) {
         String str = new String("11");
     }
+
 }
